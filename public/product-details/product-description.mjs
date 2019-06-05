@@ -12,7 +12,7 @@ template.innerHTML = `
   </div>
 `;
 
-customElements.define('product-description', class ProductDescription extends HTMLElement {
+export default class ProductDescription extends HTMLElement {
   $(selector) {
     return this.shadowRoot && this.shadowRoot.querySelector(selector);
   }
@@ -22,4 +22,4 @@ customElements.define('product-description', class ProductDescription extends HT
     const root = this.attachShadow({ mode: 'open' });
     root.appendChild(template.content.cloneNode(true));
   }
-});
+}

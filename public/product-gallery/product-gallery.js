@@ -37,8 +37,8 @@ customElements.define('product-gallery', class ProductGallery extends HTMLElemen
       path => `<product-image filepath="${path}"></product-image>`,
     );
 
-    this.$('#current').innerHTML = first;
-    this.$('#previews').innerHTML = rest;
+    this.$('#current').innerHTML = first || '';
+    this.$('#previews').innerHTML = rest || '';
   }
 
   get filepaths() {

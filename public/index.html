@@ -5,9 +5,7 @@
     <script type="module" src="search-bar.js"></script>
     <script type="module" src="shopping-cart.js"></script>
     <script type="module" src="product-gallery/product-gallery.js"></script>
-    <script type="module" src="product-description.js"></script>
-    <script type="module" src="product-price.js"></script>
-    <script type="module" src="product-availability.js"></script>
+    <script type="module" src="product-details/product-details.js"></script>
     <script type="module" src="add-to-cart.js"></script>
     <script type="module" src="recommended-products.js"></script>
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
@@ -22,15 +20,10 @@
 
     <main>
       <product-gallery class="grid-item" images='[
-        "robot-back.jpg",
-        "robot-box.jpg"
       ]'></product-gallery>
 
-      <product-description class="grid-item">OH WOW</product-description>
-
-      <product-price class="grid-item" original=4.99 sale=2.99></product-price>
-
-      <product-availability class="grid-item" count=4></product-availability>
+      <product-details price="{ sale: 4.99, original: 10.99 }">
+      </product-details>
 
       <add-to-cart class="grid-item"></add-to-cart>
 
