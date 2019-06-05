@@ -1,14 +1,36 @@
+html, body {
+  height: 100%;
+}
+
 body {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
+  margin: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
 }
 
 header {
   width: 100%;
+  font-size: 2rem;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
 }
 
-.logo {
-  font-size: 2em;
-  font-weight: 600;
-  display: inline-block;
+main {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
+
+.grid-item {
+  flex-basis: 50%;
+}
+
+.inline-block { display: inline-block }
+
+.font-weight-600 { font-weight: 600 }
+
+.flex-grow-1 { flex-grow: 1 }
+.flex-grow-2 { flex-grow: 2 }
+.flex-grow-3 { flex-grow: 3 }

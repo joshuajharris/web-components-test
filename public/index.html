@@ -9,24 +9,32 @@
     <script type="module" src="product-price.js"></script>
     <script type="module" src="product-availability.js"></script>
     <script type="module" src="add-to-cart.js"></script>
-    <script type="module" src="recommended-products"></script>
+    <script type="module" src="recommended-products.js"></script>
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <span class="logo">AW3SOME</span>
+      <span class="inline-block font-weight-600 flex-grow-1">aw3some</span>
       <search-bar><span class="lnr lnr-magnifier"></span></search-bar>
       <shopping-cart><span class="lnr lnr-cart"></span></shopping-cart>
     </header>
 
     <main>
-      <product-gallery></product-gallery>
-      <product-description>OH WOW</product-description>
-      <product-price original=4.99 sale=2.99></product-price>
-      <product-availability count=4></product-availability>
-      <add-to-cart></add-to-cart>
-      <recommended-products></recommended-products>
+      <product-gallery class="grid-item" images='[
+        "robot-back.jpg",
+        "robot-box.jpg"
+      ]'></product-gallery>
+
+      <product-description class="grid-item">OH WOW</product-description>
+
+      <product-price class="grid-item" original=4.99 sale=2.99></product-price>
+
+      <product-availability class="grid-item" count=4></product-availability>
+
+      <add-to-cart class="grid-item"></add-to-cart>
+
+      <recommended-products class="grid-item"></recommended-products>
     </main>
 
     <footer>Footer</footer>

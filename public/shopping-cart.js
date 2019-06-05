@@ -6,6 +6,11 @@ template.innerHTML = `
         color: #66CC00;
         display: inline-block;
       }
+
+      button {
+        background: transparent;
+        border: none;
+      }
     </style>
     <slot></slot>
   </div>
