@@ -2,16 +2,20 @@ const template = document.createElement('template');
 template.innerHTML = `
   <div>
     <style>
-      :host {
-        color: #FF0000;
-        display: inline-block;
+      .original {
+        color: cyan;
+      }
+
+      .sale {
+        color: orange;
       }
     </style>
-    <slot></slot>
+    <span class="original"></span>
+    <span class="sale"></span>
   </div>
 `;
 
-customElements.define('search-bar', class SearchBar extends HTMLElement {
+customElements.define('product-price', class ProductPrice extends HTMLElement {
   $(selector) {
     return this.shadowRoot && this.shadowRoot.querySelector(selector);
   }
@@ -20,5 +24,8 @@ customElements.define('search-bar', class SearchBar extends HTMLElement {
     super();
     const root = this.attachShadow({ mode: 'open' });
     root.appendChild(template.content.cloneNode(true));
+
+    this.$('.sale').textContent = this.getAttribute('sale');
+    this.$('.original').textContent = this.getAttribute('original');
   }
 });

@@ -7,11 +7,11 @@ template.innerHTML = `
         display: inline-block;
       }
     </style>
-    <slot></slot>
+    <span class="count">0</span>
   </div>
 `;
 
-customElements.define('search-bar', class SearchBar extends HTMLElement {
+customElements.define('product-availability', class ProductAvailability extends HTMLElement {
   $(selector) {
     return this.shadowRoot && this.shadowRoot.querySelector(selector);
   }
@@ -20,5 +20,7 @@ customElements.define('search-bar', class SearchBar extends HTMLElement {
     super();
     const root = this.attachShadow({ mode: 'open' });
     root.appendChild(template.content.cloneNode(true));
+
+    this.$('.count').textContent = this.getAttribute('count');
   }
 });

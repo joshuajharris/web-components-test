@@ -7,11 +7,11 @@ template.innerHTML = `
         display: inline-block;
       }
     </style>
-    <slot></slot>
+    <button>Add to Cart</button>
   </div>
 `;
 
-customElements.define('search-bar', class SearchBar extends HTMLElement {
+customElements.define('add-to-cart', class AddToCart extends HTMLElement {
   $(selector) {
     return this.shadowRoot && this.shadowRoot.querySelector(selector);
   }

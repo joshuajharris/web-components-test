@@ -3,7 +3,7 @@ template.innerHTML = `
   <div>
     <style>
       :host {
-        color: #FF0000;
+        color: #66CC00;
         display: inline-block;
       }
     </style>
@@ -11,7 +11,7 @@ template.innerHTML = `
   </div>
 `;
 
-customElements.define('search-bar', class SearchBar extends HTMLElement {
+customElements.define('shopping-cart', class ShoppingCart extends HTMLElement {
   $(selector) {
     return this.shadowRoot && this.shadowRoot.querySelector(selector);
   }
