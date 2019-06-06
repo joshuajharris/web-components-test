@@ -1,5 +1,12 @@
 const template = document.createElement('template');
 template.innerHTML = `
+  <style>
+    img {
+      object-fit: contain;
+      display: inline-block;
+      width: 100%;
+    }
+  </style>
   <img/>
 `;
 
@@ -8,21 +15,13 @@ export default class ProductGallery extends HTMLElement {
     return this.shadowRoot && this.shadowRoot.querySelector(selector);
   }
 
-  constructor() {
+  constructor(filepath, onClick) {
     super();
     const root = this.attachShadow({ mode: 'open' });
     root.appendChild(template.content.cloneNode(true));
 
-    this.updateImgSrc();
+    this.$('img').src = filepath;
 
-    console.log(this.filepath);
-  }
-
-  get filepath() {
-    return this.getAttribute('filepath');
-  }
-
-  updateImgSrc() {
-    this.$('img').src = `imgs/${this.filepath}`;
+    this.addEventListener('click', () => onClick(filepath));
   }
 }
