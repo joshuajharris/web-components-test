@@ -4,14 +4,14 @@ const template = document.createElement('template');
 template.innerHTML = `
   <style>
     product-image {
-      height: 64px;
+      min-height: 64px;
       width: 64px;
       display: inline-block;
       cursor: pointer;
     }
 
     product-image:hover {
-      border: 1px solid cyan;
+      border: 1px solid orange;
     }
   </style>
   <div id="container"></div>

@@ -24,6 +24,7 @@ template.innerHTML = `
       top: 0;
       right: -50%;
       z-index: 100;
+      border-left: 1px solid #000;
     }
 
     .slide-in {

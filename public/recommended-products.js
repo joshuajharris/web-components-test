@@ -3,11 +3,10 @@ template.innerHTML = `
   <div>
     <style>
       :host {
-        color: #FF0000;
         display: inline-block;
       }
     </style>
-    Recommended Products
+    <h2>Recommended Products</h2>
   </div>
 `;
 
