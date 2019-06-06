@@ -1,15 +1,17 @@
 const template = document.createElement('template');
 template.innerHTML = `
-  <div>
-    <style>
-      :host {
-        color: #FF0000;
-        display: inline-block;
-        overflow-wrap: break-word;
-      }
-    </style>
-    <slot></slot>
-  </div>
+  <style>
+    :host {
+      display: inline-block;
+      overflow-wrap: break-word;
+      margin: 1em 0 1em 0;
+    }
+
+    p {
+      line-height: 2em;
+    }
+  </style>
+  <p><slot></slot></p>
 `;
 
 export default class ProductDescription extends HTMLElement {

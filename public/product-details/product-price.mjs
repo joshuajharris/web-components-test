@@ -29,7 +29,7 @@ template.innerHTML = `
     </style>
     Original Price: <span class="original"></span><br/>
     Sale Price: <span class="sale"></span><br/>
-    You save <span class="savings"></span>
+    You save: <span class="savings"></span>
   </div>
 `;
 

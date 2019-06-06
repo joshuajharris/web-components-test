@@ -10,20 +10,21 @@ customElements.define('add-to-cart', AddToCart);
 
 const template = document.createElement('template');
 template.innerHTML = `
-  <div>
-    <style>
-      :host {
-        display: inline-block;
-      }
-    </style>
-    <h1 id="name">Product Name</h1>
-    <product-price original=4.99 sale=2.99></product-price>
-    <p>
-      <slot></slot>
-    </p>
-    <product-availability count=4></product-availability>
-    <add-to-cart></add-to-cart>
-  </div>
+  <style>
+    :host {
+      display: inline-block;
+    }
+  </style>
+
+  <h1 id="name">Product Name</h1>
+
+  <product-price original=4.99 sale=2.99></product-price>
+
+  <product-description><slot></slot></product-description>
+
+  <product-availability count=4></product-availability>
+
+  <add-to-cart></add-to-cart>
 `;
 
 customElements.define('product-details', class ProductDetails extends HTMLElement {
