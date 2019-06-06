@@ -6,9 +6,9 @@
     <script type="module" src="shopping-cart.js"></script>
     <script type="module" src="product-gallery/product-gallery.js"></script>
     <script type="module" src="product-details/product-details.js"></script>
-    <script type="module" src="add-to-cart.js"></script>
     <script type="module" src="recommended-products.js"></script>
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="blocks.css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -26,11 +26,9 @@
         "imgs/robot-box.jpg"
       ]'></product-gallery>
 
-      <product-details name="Robot Toy" price="{ sale: 4.99, original: 10.99 }">
-        This Item Rocks
+      <product-details class="grid-item" name="Robot Toy" price="{ sale: 4.99, original: 10.99 }">
+        The perfect companion for all ages and genders. With its lack of facial features and expression you'll never feel judged by your new friend.
       </product-details>
-
-      <add-to-cart class="grid-item"></add-to-cart>
 
       <recommended-products class="grid-item"></recommended-products>
     </main>

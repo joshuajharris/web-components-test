@@ -9,7 +9,8 @@ body {
 }
 
 header {
-  width: 100%;
+  width: 90%;
+  padding: 2em;
   font-size: 2rem;
   text-transform: uppercase;
   display: flex;
@@ -17,20 +18,22 @@ header {
 }
 
 main {
-  width: 100%;
+  width: 90%;
+  padding: 2em;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+}
+
+product-gallery {
+  order: -1;
 }
 
 .grid-item {
   flex-basis: 50%;
 }
 
-.inline-block { display: inline-block }
-
-.font-weight-600 { font-weight: 600 }
-
-.flex-grow-1 { flex-grow: 1 }
-.flex-grow-2 { flex-grow: 2 }
-.flex-grow-3 { flex-grow: 3 }
+footer {
+  width: 90%;
+  padding: 2em;
+}

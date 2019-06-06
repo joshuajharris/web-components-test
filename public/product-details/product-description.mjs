@@ -5,7 +5,7 @@ template.innerHTML = `
       :host {
         color: #FF0000;
         display: inline-block;
-        flex-basis: 50%;
+        overflow-wrap: break-word;
       }
     </style>
     <slot></slot>

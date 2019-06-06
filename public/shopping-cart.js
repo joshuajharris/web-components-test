@@ -3,7 +3,6 @@ template.innerHTML = `
   <div>
     <style>
       :host {
-        color: #66CC00;
         display: inline-block;
       }
 
