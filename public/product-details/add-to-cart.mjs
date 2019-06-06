@@ -14,6 +14,11 @@ template.innerHTML = `
       color: #FFFFFF;
       font-size: 1em;
       font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: orange;
     }
   </style>
   <button>Add to Cart</button>

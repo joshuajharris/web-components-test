@@ -7,7 +7,7 @@ template.innerHTML = `
         display: inline-block;
       }
     </style>
-    <span class="count">0</span>
+    Act quickly, there are only <span class="count">0</span> left!
   </div>
 `;
 
