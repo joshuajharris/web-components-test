@@ -34,6 +34,20 @@ product-gallery {
 }
 
 footer {
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #888;
   width: 90%;
   padding: 2em;
+}
+
+footer a {
+  float: right;
+  padding: 5px;
+  cursor: pointer;
+}
+
+footer a:hover {
+  color: #666;
 }
