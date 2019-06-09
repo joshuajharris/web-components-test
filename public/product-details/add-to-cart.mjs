@@ -8,7 +8,7 @@ template.innerHTML = `
 
     button {
       width: 75%;
-      background: #FF7901;
+      background: var(--orange-color);
       border: transparent;
       padding: 1em;
       color: #FFFFFF;

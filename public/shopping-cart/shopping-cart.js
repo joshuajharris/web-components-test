@@ -27,6 +27,10 @@ template.innerHTML = `
       border-left: 1px solid #000;
     }
 
+    #items {
+      width: 100%;
+    }
+
     .slide-in {
        animation-name: slide;
        animation-duration: 250ms;
@@ -69,8 +73,11 @@ template.innerHTML = `
   <button id="cart-button"><slot></slot></button>
 
   <div id="cart">
-    <h2>Your Cart</h2>
-    <button id="close-cart-button">&times;</button>
+    <div>
+      <h2>Your Cart</h2>
+      <button id="close-cart-button">&times;</button>
+    </div>
+    <div id="items"></div>
   </div>
 `;
 
@@ -84,6 +91,12 @@ customElements.define('shopping-cart', class ShoppingCart extends HTMLElement {
     const root = this.attachShadow({ mode: 'open' });
     root.appendChild(template.content.cloneNode(true));
 
+    this.items = this.items || [];
+
+    this.addEventListener('update-cart', ({ detail: item }) => {
+      this.addItem({ title: item.title, price: item.price });
+    });
+
     this.$('#cart-button').addEventListener('click', () => {
       this.$('#cart').classList.add('slide-in');
       this.$('#cart').classList.remove('slide-out');
@@ -93,5 +106,17 @@ customElements.define('shopping-cart', class ShoppingCart extends HTMLElement {
       this.$('#cart').classList.add('slide-out');
       this.$('#cart').classList.remove('slide-in');
     });
+  }
+
+  addItem(item) {
+    this.items = [...this.items, item];
+    this.updateCart();
+  }
+
+  updateCart() {
+    console.log('Item: ', this.items);
+    this.$('#items').innerHTML = this.items.map(
+      item => `Title: ${item.title} | price: ${item.price}`,
+    ).join();
   }
 });

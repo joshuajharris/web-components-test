@@ -1,5 +1,7 @@
 html, body {
   height: 100%;
+
+  --orange-color: #FF7901;
 }
 
 body {
@@ -25,10 +27,6 @@ main {
   justify-content: flex-start;
 }
 
-product-gallery {
-  order: -1;
-}
-
 .grid-item {
   flex-basis: 50%;
 }
@@ -50,4 +48,10 @@ footer a {
 
 footer a:hover {
   color: #666;
+}
+
+@media (max-width: 650px) {
+  .grid-item {
+    flex-basis: 100%;
+  }
 }

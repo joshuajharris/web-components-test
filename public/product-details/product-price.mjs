@@ -5,6 +5,7 @@ template.innerHTML = `
       :host {
         text-align: left;
         display: inline-block;
+        color: #888;
       }
 
       span {
@@ -42,12 +43,24 @@ export default class ProductPrice extends HTMLElement {
     super();
     const root = this.attachShadow({ mode: 'open' });
     root.appendChild(template.content.cloneNode(true));
+  }
 
+  updatePrices() {
     this.$('.sale').textContent = this.sale;
     this.$('.original').textContent = this.original;
 
     const savings = 100 - (100 * (this.sale / this.original));
     this.$('.savings').textContent = `${Math.floor(savings)}%`;
+  }
+
+  static get observedAttributes() {
+    return ['sale', 'original'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (['sale', 'original'].indexOf(name) > -1) {
+      this.updatePrices();
+    }
   }
 
   get sale() {

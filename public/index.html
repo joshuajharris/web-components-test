@@ -3,13 +3,13 @@
     <meta charset="utf-8">
     <title>Sup</title>
     <script type="module" src="search-bar.js"></script>
-    <script type="module" src="shopping-cart.js"></script>
+    <script type="module" src="shopping-cart/shopping-cart.js"></script>
     <script type="module" src="product-gallery/product-gallery.js"></script>
     <script type="module" src="product-details/product-details.js"></script>
     <script type="module" src="recommended-products.js"></script>
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <link rel="stylesheet" href="blocks.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/blocks.css">
+    <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
     <header>
@@ -26,7 +26,7 @@
         "imgs/robot-box.jpg"
       ]'></product-gallery>
 
-      <product-details class="grid-item" name="Robot Toy" price="{ sale: 4.99, original: 10.99 }">
+      <product-details class="grid-item" title="Robot Toy" price='{ "sale": 4.99, "original": 10.99 }'>
         The perfect companion for all ages and genders. With their lack of facial features and expression you'll never feel judged by your new friend.
       </product-details>
 
@@ -38,5 +38,11 @@
       <a>Privacy Policy</a>
       <a>Terms of Use</a>
     </footer>
+
+    <script>
+      document.querySelector('product-details').addEventListener('add-to-cart', (event) => {
+        document.querySelector('shopping-cart').dispatchEvent(new CustomEvent('update-cart', event));
+      });
+    </script>
   </body>
 </html>
