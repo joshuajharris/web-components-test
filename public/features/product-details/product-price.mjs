@@ -57,7 +57,7 @@ export default class ProductPrice extends HTMLElement {
     return ['sale', 'original'];
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
+  attributeChangedCallback(name) {
     if (['sale', 'original'].indexOf(name) > -1) {
       this.updatePrices();
     }

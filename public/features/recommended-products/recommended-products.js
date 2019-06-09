@@ -13,6 +13,7 @@ template.innerHTML = `
 
       #items {
         display: flex;
+        flex-flow: row wrap;
         justify-content: space-around;
       }
 
@@ -20,10 +21,8 @@ template.innerHTML = `
         flex-basis: 18%;
       }
 
-      @media (max-width: 650px) {
-        recommended-item {
-          flex-basis: 100%;
-        }
+      .mobile {
+        flex-basis: 100%;
       }
     </style>
     <h2>Recommended Products</h2>
@@ -36,6 +35,10 @@ customElements.define('recommended-products', class RecommendedProducts extends 
     return this.shadowRoot && this.shadowRoot.querySelector(selector);
   }
 
+  $all(selector) {
+    return this.shadowRoot && this.shadowRoot.querySelectorAll(selector);
+  }
+
   constructor() {
     super();
     const root = this.attachShadow({ mode: 'open' });
@@ -46,5 +49,21 @@ customElements.define('recommended-products', class RecommendedProducts extends 
         this.$('#items').append(new RecommendedItem(title, url));
       });
     });
+  }
+
+  static get observedAttributes() {
+    return ['size'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if ('size') {
+      this.$all('recommended-item').forEach((elem) => {
+        if (newValue === 'mobile') {
+          elem.classList.add('mobile');
+        } else {
+          elem.classList.remove('mobile');
+        }
+      });
+    }
   }
 });

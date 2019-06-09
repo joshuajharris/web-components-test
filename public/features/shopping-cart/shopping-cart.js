@@ -22,13 +22,21 @@ template.innerHTML = `
 
     #cart {
       height: 100%;
-      width: 50%;
       position: fixed;
       background: #FFF;
       top: 0;
-      right: -50%;
       z-index: 100;
       border-left: 1px solid #000;
+    }
+
+    .normal {
+      width: 50%;
+      right: -50%;
+    }
+
+    .mobile {
+      width: 100%;
+      right: -100%;
     }
 
     #items {
@@ -142,5 +150,21 @@ customElements.define('shopping-cart', class ShoppingCart extends HTMLElement {
         this.removeItem(event.detail.index);
       });
     });
+  }
+
+  static get observedAttributes() {
+    return ['size'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if ('size') {
+      if (newValue === 'mobile') {
+        this.$('#cart').classList.remove('normal');
+        this.$('#cart').classList.add('mobile');
+      } else {
+        this.$('#cart').classList.remove('mobile');
+        this.$('#cart').classList.add('normal');
+      }
+    }
   }
 });

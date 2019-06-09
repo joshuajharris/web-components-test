@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/styles/blocks.css">
     <link rel="stylesheet" href="assets/styles/style.css">
   </head>
-  <body>
+  <body onload="init()" onresize="onResize()">
     <header>
       <span class="inline-block font-weight-600 flex-grow-1">aw3some</span>
       <search-bar><span slot="icon" class="lnr lnr-magnifier"></span></search-bar>
@@ -40,9 +40,22 @@
     </footer>
 
     <script>
-      document.querySelector('product-details').addEventListener('add-to-cart', (event) => {
-        document.querySelector('shopping-cart').dispatchEvent(new CustomEvent('update-cart', event));
-      });
+      const onResize = () => {
+        if (window.innerWidth < 650) {
+          document.querySelector('recommended-products').setAttribute('size', 'mobile');
+          document.querySelector('shopping-cart').setAttribute('size', 'mobile');
+        } else {
+          document.querySelector('recommended-products').setAttribute('size', 'normal');
+          document.querySelector('shopping-cart').setAttribute('size', 'normal');
+        }
+      }
+
+      const init = () => {
+        document.querySelector('product-details').addEventListener('add-to-cart', (event) => {
+          document.querySelector('shopping-cart').dispatchEvent(new CustomEvent('update-cart', event));
+        });
+        onResize();
+      }
     </script>
   </body>
 </html>

@@ -9,6 +9,7 @@ template.innerHTML = `
     }
 
     button {
+      padding: 1em 2em 1em 2em;
       background: var(--orange-color);
       color: #FFFFFF;
       border: none;
@@ -16,9 +17,9 @@ template.innerHTML = `
       cursor: pointer;
     }
   </style>
-  <button>&times;</button>
   Title: <b><slot name="title"></slot></b>
   Price: <b><slot name="price"></slot></b>
+  <button>&times;</button>
 `;
 
 export default class ShoppingCartItem extends HTMLElement {
