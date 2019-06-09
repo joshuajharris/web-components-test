@@ -2,14 +2,14 @@
   <head>
     <meta charset="utf-8">
     <title>Sup</title>
-    <script type="module" src="search-bar.js"></script>
-    <script type="module" src="shopping-cart/shopping-cart.js"></script>
-    <script type="module" src="product-gallery/product-gallery.js"></script>
-    <script type="module" src="product-details/product-details.js"></script>
-    <script type="module" src="recommended-products.js"></script>
+    <script type="module" src="features/search-bar.js"></script>
+    <script type="module" src="features/shopping-cart/shopping-cart.js"></script>
+    <script type="module" src="features/product-gallery/product-gallery.js"></script>
+    <script type="module" src="features/product-details/product-details.js"></script>
+    <script type="module" src="features/recommended-products.js"></script>
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <link rel="stylesheet" href="styles/blocks.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="assets/styles/blocks.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
   </head>
   <body>
     <header>
@@ -20,10 +20,10 @@
 
     <main>
       <product-gallery class="grid-item" filepaths='[
-        "imgs/robot-front.jpg",
-        "imgs/robot-left.jpg",
-        "imgs/robot-side.jpg",
-        "imgs/robot-box.jpg"
+        "assets/imgs/robot-front.jpg",
+        "assets/imgs/robot-left.jpg",
+        "assets/imgs/robot-side.jpg",
+        "assets/imgs/robot-box.jpg"
       ]'></product-gallery>
 
       <product-details class="grid-item" title="Robot Toy" price='{ "sale": 4.99, "original": 10.99 }'>
