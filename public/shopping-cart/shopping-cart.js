@@ -1,3 +1,7 @@
+import ShoppingCartItem from './cart-item.mjs';
+
+customElements.define('shopping-cart-item', ShoppingCartItem);
+
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
@@ -86,6 +90,10 @@ customElements.define('shopping-cart', class ShoppingCart extends HTMLElement {
     return this.shadowRoot && this.shadowRoot.querySelector(selector);
   }
 
+  $all(selector) {
+    return this.shadowRoot && this.shadowRoot.querySelectorAll(selector);
+  }
+
   constructor() {
     super();
     const root = this.attachShadow({ mode: 'open' });
@@ -113,10 +121,26 @@ customElements.define('shopping-cart', class ShoppingCart extends HTMLElement {
     this.updateCart();
   }
 
+  removeItem(index) {
+    this.items = [
+      ...this.items.slice(0, index),
+      ...this.items.slice(index + 1),
+    ];
+    this.updateCart();
+  }
+
   updateCart() {
-    console.log('Item: ', this.items);
     this.$('#items').innerHTML = this.items.map(
-      item => `Title: ${item.title} | price: ${item.price}`,
-    ).join();
+      (item, index) => `<shopping-cart-item index=${index}>
+        <span slot="title">${item.title}</span>
+        <span slot="price">$${item.price}</span>
+      </shopping-cart-item>`,
+    ).join('');
+
+    this.$all('shopping-cart-item').forEach((elem) => {
+      elem.addEventListener('remove-item', (event) => {
+        this.removeItem(event.detail.index);
+      });
+    });
   }
 });
