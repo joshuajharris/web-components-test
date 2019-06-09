@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sup</title>
+    <script type="module" src="features/search-bar.js"></script>
+    <script type="module" src="features/shopping-cart/shopping-cart.js"></script>
+    <script type="module" src="features/product-gallery/product-gallery.js"></script>
+    <script type="module" src="features/product-details/product-details.js"></script>
+    <script type="module" src="features/recommended-products/recommended-products.js"></script>
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="assets/styles/blocks.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+  </head>
+  <body onload="init()" onresize="onResize()">
+    <header>
+      <span class="inline-block font-weight-600 flex-grow-1">aw3some</span>
+      <search-bar><span slot="icon" class="lnr lnr-magnifier"></span></search-bar>
+      <shopping-cart><span slot="icon" class="lnr lnr-cart"></span></shopping-cart>
+    </header>
+
+    <main>
+      <product-gallery class="grid-item" filepaths='[
+        "assets/imgs/robot-front.jpg",
+        "assets/imgs/robot-left.jpg",
+        "assets/imgs/robot-side.jpg",
+        "assets/imgs/robot-box.jpg"
+      ]'></product-gallery>
+
+      <product-details class="grid-item" title="Robot Toy" price='{ "sale": 4.99, "original": 10.99 }'>
+        The perfect companion for all ages and genders. With their lack of facial features and expression you'll never feel judged by your new friend.
+      </product-details>
+
+      <recommended-products></recommended-products>
+    </main>
+
+    <footer>
+      <span>&copy; Aw3some Inc.</span>
+      <a>Privacy Policy</a>
+      <a>Terms of Use</a>
+    </footer>
+
+    <script>
+      const onResize = () => {
+        if (window.innerWidth < 650) {
+          document.querySelector('recommended-products').setAttribute('size', 'mobile');
+          document.querySelector('shopping-cart').setAttribute('size', 'mobile');
+        } else {
+          document.querySelector('recommended-products').setAttribute('size', 'normal');
+          document.querySelector('shopping-cart').setAttribute('size', 'normal');
+        }
+      }
+
+      const init = () => {
+        document.querySelector('product-details').addEventListener('add-to-cart', (event) => {
+          document.querySelector('shopping-cart').dispatchEvent(new CustomEvent('update-cart', event));
+        });
+        onResize();
+      }
+    </script>
+  </body>
+</html>
