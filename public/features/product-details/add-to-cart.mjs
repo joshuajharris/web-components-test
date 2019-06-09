@@ -26,8 +26,18 @@ template.innerHTML = `
     button:hover {
       background: orange;
     }
+
+    .has-added {
+      background: #CCC;
+      color: #888;
+    }
+
+    .has-added:hover {
+      color: #CCC;
+      background: #888;
+    }
   </style>
-  <button>Add to Cart</button>
+  <button>\u{002B} Add to Cart</button>
 `;
 
 export default class AddToCart extends HTMLElement {
@@ -39,5 +49,11 @@ export default class AddToCart extends HTMLElement {
     super();
     const root = this.attachShadow({ mode: 'open' });
     root.appendChild(template.content.cloneNode(true));
+
+    this.$('button').addEventListener('click', () => {
+      this.$('button').classList.add('has-added');
+      this.$('button').textContent = '\u{02713} Item added to Cart';
+      this.$('button').disabled = true;
+    });
   }
 }
