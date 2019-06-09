@@ -74,7 +74,7 @@ template.innerHTML = `
     #cart h2 { padding: 2em; display: inline-block; }
 
   </style>
-  <button id="cart-button"><slot></slot></button>
+  <button id="cart-button"><slot name="icon"></slot></button>
 
   <div id="cart">
     <div>

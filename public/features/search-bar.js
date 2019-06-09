@@ -6,7 +6,7 @@ template.innerHTML = `
         display: inline-block;
       }
     </style>
-    <slot></slot>
+    <slot name="icon"></slot>
   </div>
 `;
 

@@ -17,6 +17,12 @@ template.innerHTML = `
       cursor: pointer;
     }
 
+    @media (max-width: 650px) {
+      button {
+        width: 100%;
+      }
+    }
+
     button:hover {
       background: orange;
     }
